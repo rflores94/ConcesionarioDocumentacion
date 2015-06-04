@@ -10,23 +10,23 @@ public class Coche {
 	 * Matr&iacute;cula del coche.
 	 * Sigue el patr&oacute;n nuevo: cuatro caracteres num&eacute;ricos y tres letras, separados o no por un gui&oacute;n o un espacio
 	 */
-	private String matricula;
+	public String matricula;
 	
 	/**
 	 * Color del coche.
 	 */
-	private Color color;
+	public Color color;
 	
 	/**
 	 * Modelo del coche.
 	 */
-	private Modelo modelo;
+	public Modelo modelo;
 	
 	
 	/**
 	 * Patr&oacute;n que debe cumplir una matr&iacute;cula
 	 */
-	static final private Pattern patternMatricula = Pattern.compile("^\\d{4}[ -]?[[B-Z]&&[^QEIOU]]{3}$");
+	static final public Pattern patternMatricula = Pattern.compile("^\\d{4}[ -]?[[B-Z]&&[^QEIOU]]{3}$");
 
 	/**
 	 * Constructor de la clase.
@@ -34,7 +34,7 @@ public class Coche {
 	 * @param color
 	 * @param modelo
 	 */
-	private Coche(String matricula, Color color, Modelo modelo) {
+	public Coche(String matricula, Color color, Modelo modelo) {
 		super();
 		setMatricula(matricula);
 		setColor(color);
@@ -45,7 +45,7 @@ public class Coche {
 	 * Getter matr&iacute;cula
 	 * @param matricula
 	 */
-	private Coche(String matricula) {
+	public Coche(String matricula) {
 		setMatricula(matricula);
 	}
 
@@ -57,7 +57,7 @@ public class Coche {
 	 * @param modelo del coche
 	 * @return crea un nuevo coche con los par&aacute;metros v&aacute;lidos.
 	 */
-	static Coche instanciarCoche(String matricula, Color color, Modelo modelo) {
+	public static Coche instanciarCoche(String matricula, Color color, Modelo modelo) {
 		if (esValida(matricula) && color != null && modelo != null)
 			return new Coche(matricula, color, modelo);
 		return null;
@@ -68,7 +68,7 @@ public class Coche {
 	 * @param matricula
 	 * @return matricula v&aacute;lida
 	 */
-	static Coche instanciarCoche(String matricula) {
+	public static Coche instanciarCoche(String matricula) {
 		if (esValida(matricula))
 			return new Coche(matricula);
 		return null;
@@ -79,7 +79,7 @@ public class Coche {
 	 * @param matricula
 	 * @return matr&aacute;cula v&aacute;lida.
 	 */
-	private static boolean esValida(String matricula) {
+	public static boolean esValida(String matricula) {
 		return patternMatricula.matcher(matricula).matches();
 	}
 
@@ -87,7 +87,7 @@ public class Coche {
 	 * Setter Matricula
 	 * @param matricula
 	 */
-	private void setMatricula(String matricula) {
+	public void setMatricula(String matricula) {
 		this.matricula = matricula;
 	}
 
@@ -135,7 +135,7 @@ public class Coche {
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	/**
-	 * matr&iacute;cula. Compara dos coches por su matr&iacute;cula
+	 * Comprueba que un coche sea igual a &eacute;. Se fija en la matr&iacute;cula
 	 * @param obj coche que se le pasa como par&aacute;metro
 	 * @return true si los dos objetos coinciden, false si no coinciden
 	 */
